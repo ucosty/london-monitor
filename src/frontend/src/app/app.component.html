@@ -1,0 +1,33 @@
+<header>
+    <h1>London Monitor</h1>
+    <h2>Transport Status and Arrivals</h2>
+</header>
+
+<div class="columns">
+    <section id="tube">
+        <table>
+            <tr *ngFor="let line of status?.tubeLines" class="{{ line.id }}">
+                <td class="line">{{ line.name }}</td>
+                <td class="status">{{ line.lineStatuses[0].statusSeverityDescription }}</td>
+            </tr>
+        </table>
+    </section>
+    
+    <section id="national-rail">
+        <table>
+            <tr *ngFor="let line of status?.railLines" class="{{ line.id }}">
+                <td class="line">{{ line.name }}</td>
+                <td class="status">{{ line.lineStatuses[0].statusSeverityDescription }}</td>
+            </tr>
+        </table>
+    </section>
+    
+    <section id="bus">
+        <table>
+            <tr *ngFor="let line of status?.busLines" class="bus">
+                <td class="line">{{ line.name }}</td>
+                <td class="status">{{ line.lineStatuses[0].statusSeverityDescription }}</td>
+            </tr>
+        </table>
+    </section>
+</div>
